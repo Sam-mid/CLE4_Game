@@ -16,6 +16,8 @@ export class Game extends Engine {
         fish.pos = new Vector(400, 300)
         fish.vel = new Vector(-10,0)
         this.add(fish)
+
+        this.showDebug(true)
     }
 }
 
