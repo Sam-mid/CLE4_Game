@@ -1,5 +1,6 @@
 import { Actor, CollisionType, Input, Scene, Sound, Vector } from "excalibur";
 import { Resources } from "../resources";
+import { Ghost } from "./Ghost";
 
 export class FlashLight extends Actor{
 
@@ -7,7 +8,7 @@ export class FlashLight extends Actor{
 
     constructor() {
         super({
-            pos: new Vector(150, 0), 
+            pos: new Vector(200, 0), 
             width: Resources.Flashlight.width,
             height: Resources.Flashlight.height,
             CollisionType: CollisionType.Active
@@ -18,10 +19,20 @@ export class FlashLight extends Actor{
 
     onInitialize(engine){
         this.graphics.use(Resources.Flashlight.toSprite())
+        this.on('collisionstart', (event) => {
+            this.dealDamage(event)
+        })
     }
 
     onPreUpdate(){
 
+    }
+
+    dealDamage(event){
+        if (event.other instanceof Ghost){
+            event.other.hitByFlashlight()
+
+        }
     }
 
 

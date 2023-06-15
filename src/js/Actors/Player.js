@@ -4,7 +4,7 @@ import { FlashLight } from "./Flashlight";
 
 export class Player extends Actor{
 
-    ROTATION_SPEED = 0.06
+    ROTATION_SPEED = 0.037
     isItemAdded = false
     ITEM
 
@@ -12,7 +12,7 @@ export class Player extends Actor{
     constructor(x, y){
     super({
         pos: new Vector(x, y),  
-            scale: new Vector(0.5, 0.5),
+            scale: new Vector(0.8, 0.8),
             rotation: 0.90,
             width: Resources.Player.width,
             height: Resources.Player.height,
@@ -59,7 +59,7 @@ export class Player extends Actor{
             engine.input.keyboard.isHeld(Input.Keys.S) ||
             engine.input.keyboard.isHeld(Input.Keys.Down)
             ){
-                speed = -300;
+                speed = -150;
             }
 
         //Handles the roatation of the player

@@ -1,6 +1,6 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 import fishImage from '../images/fish.png'
-import player from '../images/playersketch.png'
+import player from '../images/GuardSprite.png'
 import flashlight from '../images/flashlightsketch.png'
 import ghost from '../images/ghostsketch.png'
 
