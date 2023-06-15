@@ -1,7 +1,7 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 import fishImage from '../images/fish.png'
 import player from '../images/GuardSprite.png'
-import flashlight from '../images/flashlightsketch.png'
+import flashlight from '../images/flashlight.png'
 import ghost from '../images/ghostsketch.png'
 
 const Resources = {

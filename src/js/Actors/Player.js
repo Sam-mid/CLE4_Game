@@ -1,4 +1,4 @@
-import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction } from "excalibur";
+import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction, Shape } from "excalibur";
 import {Resources} from "../resources"
 import { FlashLight } from "./Flashlight";
 
@@ -8,18 +8,20 @@ export class Player extends Actor{
     isItemAdded = false
     ITEM
 
+    const
+
 
     constructor(x, y){
+        
+     const circle = Shape.Circle(55)
     super({
         pos: new Vector(x, y),  
             scale: new Vector(0.8, 0.8),
             rotation: 0.90,
-            width: Resources.Player.width,
-            height: Resources.Player.height,
-            CollisionType: CollisionType.Active
+            CollisionType: CollisionType.Active,
+            collider: circle
         })
 
-        
     }
 
     onInitialize(engine){

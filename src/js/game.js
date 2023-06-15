@@ -7,8 +7,9 @@ export class Game extends Engine {
 
     constructor() {
         super({ 
-            viewport: { height:720, width:1280},
-            resolution:{height: 720, width: 1280}
+            viewport: {width:1920, height:1080 },
+            resolution:{width: 1280, height: 720},
+            antialiasing:false
          })
         this.start(ResourceLoader).then(() => this.startGame())
     }
