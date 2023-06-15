@@ -55,6 +55,13 @@ export class Player extends Actor{
             speed = 300;
         }
 
+        if (
+            engine.input.keyboard.isHeld(Input.Keys.S) ||
+            engine.input.keyboard.isHeld(Input.Keys.Down)
+            ){
+                speed = -300;
+            }
+
         //Handles the roatation of the player
         if (
         engine.input.keyboard.isHeld(Input.Keys.D) ||
