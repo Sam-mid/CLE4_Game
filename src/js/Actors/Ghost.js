@@ -1,56 +1,49 @@
-import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction, Shape, Timer } from "excalibur";
-import {Resources} from "../resources"
-import { Game } from "../game";
-import { FlashLight } from "./Flashlight";
+import { Actor, CollisionType, Input, Vector, Shape } from "excalibur";
+import { Resources } from "../resources";
 
-export class Ghost extends Actor{
-
-    HEALTH = 20 
-    DAMAGE = FlashLight.DAMAGE
-
-
-   
-    constructor(){
-        const circle = Shape.Circle(55)
-        super({
-            pos: new Vector(0, 0),
-            scale: new Vector(0.5, 0.5),
-            collider: circle,
-            CollisionType: CollisionType.Active
-        })
+export class Ghost extends Actor {
+    HEALTH = 20;
+    interval;
+  
+    constructor() {
+      const circle = Shape.Circle(55);
+      super({
+        pos: new Vector(0, 0),
+        scale: new Vector(0.5, 0.5),
+        collider: circle,
+        collisionType: CollisionType.Active,
+      });
     }
-    
-    onInitialize(){
-        this.graphics.use(Resources.Ghost.toSprite())
+  
+    onInitialize() {
+      this.graphics.use(Resources.Ghost.toSprite());
     }
-
-
-    hitByFlashlight(){  
-        console.log('ok')
+  
+    hitByFlashlight(DAMAGE) {
+      console.log(`The flashlight gives ${DAMAGE}`);
+      clearInterval(this.interval); // Clear any existing interval
+      this.interval = setInterval(() => {
+        this.updateHealthBar(DAMAGE);
+      }, 500);
     }
-
-    takeDamage(){
-        // console.log('dealing damage')
-        // console.log(this.DAMAGE)
-
-
-        // this.HEALTH -= this.DAMAGE
-        // this.HEALTH = Math.max(0, this.HEALTH)
-        // this.HEALTH = Math.min(20, this.HEALTH)
-
-
-        // if (this.HEALTH === 0){
-        //     clearInterval(interval)
-        //     this.kill()
-        // }
-        // // if(this.HEALTH > 0){
-        // //     this.HEALTH -= DAMAGE
-        // //     console.log(this.HEALTH)
-        // //  } else if (this.HEALTH === 0){
-        // //     this.kill()
-        // //      console.log('killed ghost')
-        // //      clearInterval(interval)
-        // // }
-        
+  
+    updateHealthBar(DAMAGE) {
+      this.takeDamage(DAMAGE);
     }
-}
+  
+    takeDamage(DAMAGE) {
+      console.log(`Ghost: the amount taken is ${DAMAGE}`);
+      console.log(`Ghost: The current health is ${this.HEALTH}`);
+  
+      this.HEALTH -= DAMAGE;
+      console.log(this.HEALTH);
+  
+      this.HEALTH = Math.max(0, this.HEALTH);
+      this.HEALTH = Math.min(20, this.HEALTH);
+  
+      if (this.HEALTH === 0) {
+        this.kill();
+        clearInterval(this.interval);
+      }
+    }
+  }

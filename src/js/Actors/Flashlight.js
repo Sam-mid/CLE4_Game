@@ -18,10 +18,11 @@ export class FlashLight extends Actor{
 
     onInitialize(engine){
         this.graphics.use(Resources.Flashlight.toSprite())
-        this.graphics.opacity =  0.5
+        this.graphics.opacity =  0.4
         this.on('collisionstart', (event) => {
             this.dealDamage(event)
         })
+        console.log(`this is ` + this.DAMAGE)
     }
 
     onPreUpdate(){

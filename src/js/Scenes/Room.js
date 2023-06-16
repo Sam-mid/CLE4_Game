@@ -9,6 +9,7 @@ import {Plant} from "../Actors/ParkObjects/Plant.js";
 export class Room extends Scene{
     onInitialize(engine){
         console.log('Room loaded')
+        
         //Map
         let background = new Background()
         this.add(background)
