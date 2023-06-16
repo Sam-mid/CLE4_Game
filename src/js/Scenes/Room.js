@@ -3,6 +3,8 @@ import { Player } from "../Actors/Player";
 import { FlashLight } from "../Actors/Flashlight";
 import { Ghost } from "../Actors/Ghost";
 import { Background } from "../Actors/Background";
+import { Bench } from "../Actors/ParkObjects/Bench.js";
+import {Plant} from "../Actors/ParkObjects/Plant.js";
 
 export class Room extends Scene{
     onInitialize(engine){
@@ -10,6 +12,12 @@ export class Room extends Scene{
         //Map
         let background = new Background()
         this.add(background)
+
+        let bench = new Bench
+        this.add(bench)
+
+        let plant = new Plant()
+        this.add(plant)
 
         //Add player to the game
         let player = new Player(0, 0)
