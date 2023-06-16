@@ -9,7 +9,7 @@ export class FlashLight extends Actor{
     constructor() {
         super({
             pos: new Vector(250, 0), 
-            width: Resources.Flashlight.width,
+            width: 200,
             height: Resources.Flashlight.height,
             CollisionType: CollisionType.Active,
             

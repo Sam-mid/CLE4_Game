@@ -7,7 +7,7 @@ export class Game extends Engine {
 
     constructor() {
         super({ 
-            viewport: {width:1920, height:1080 },
+            viewport: {width:1280, height:720},
             resolution:{width: 1280, height: 720},
             antialiasing:false
          })

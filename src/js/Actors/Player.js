@@ -4,7 +4,7 @@ import { FlashLight } from "./Flashlight";
 
 export class Player extends Actor{
 
-    ROTATION_SPEED = 0.037
+    ROTATION_SPEED = 0.03
     isItemAdded = false
     ITEM
 
@@ -54,7 +54,7 @@ export class Player extends Actor{
         engine.input.keyboard.isHeld(Input.Keys.W) ||
         engine.input.keyboard.isHeld(Input.Keys.Up)
         ){
-            speed = 300;
+            speed = 400;
         }
 
         if (
@@ -80,7 +80,7 @@ export class Player extends Actor{
         }
 
         if (engine.input.keyboard.isHeld(Input.Keys.ShiftLeft)){
-            speed = 500
+            speed = 550
         }
 
         let direction = new Vector(
