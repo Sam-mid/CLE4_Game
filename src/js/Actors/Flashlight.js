@@ -9,7 +9,7 @@ export class FlashLight extends Actor{
     constructor() {
         super({
             pos: new Vector(250, 0), 
-            width: 200,
+            width: 220,
             height: Resources.Flashlight.height,
             CollisionType: CollisionType.Active,
             
@@ -30,7 +30,7 @@ export class FlashLight extends Actor{
 
     dealDamage(event){
         if (event.other instanceof Ghost){
-            event.other.hitByFlashlight()
+            event.other.hitByFlashlight(this.DAMAGE)
 
         }
     }
