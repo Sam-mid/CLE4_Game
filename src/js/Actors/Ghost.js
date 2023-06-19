@@ -1,9 +1,10 @@
-import { Actor, CollisionType, Input, Vector, Shape } from "excalibur";
+import { Actor, CollisionType, Input, Vector, Shape, } from "excalibur";
 import { Resources } from "../resources";
 
 export class Ghost extends Actor {
     HEALTH = 20;
     interval;
+    targetActor; // Reference to the target actor
 
     constructor() {
         const circle = Shape.Circle(55);
@@ -46,4 +47,5 @@ export class Ghost extends Actor {
             clearInterval(this.interval);
         }
     }
+    8
 }

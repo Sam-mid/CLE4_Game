@@ -5,6 +5,7 @@ import { Ghost } from "../Actors/Ghost";
 import { Background } from "../Actors/Background";
 import { Bench } from "../Actors/ParkObjects/Bench.js";
 import {Plant} from "../Actors/ParkObjects/Plant.js";
+import {Train} from "../Actors/train.js";
 
 export class Room extends Scene{
     onInitialize(engine){
@@ -13,6 +14,9 @@ export class Room extends Scene{
         //Map
         let background = new Background()
         this.add(background)
+
+        let train = new Train()
+        this.add(train)
 
         let bench = new Bench
         this.add(bench)

@@ -2,6 +2,7 @@ import '../css/style.css'
 import { Actor, Engine, Vector } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Room } from './Scenes/Room'
+import { StartGame } from './Scenes/StartGame.js'
 
 export class Game extends Engine {
 
@@ -18,18 +19,17 @@ export class Game extends Engine {
         console.log("start de game!")
 
 
-
-
         //Add scenes to the game
         //this.addScene ('Startmenu', new StartMenu)
+        this.addScene('StartGame', new StartGame)
         this.addScene ('Room', new Room)
 
 
         //Load first Scene
-        this.goToScene('Room')
+        this.goToScene('StartGame')
 
 
-        //this.showDebug(true)
+        this.showDebug(true)
     }
 }
 

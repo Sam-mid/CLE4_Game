@@ -3,7 +3,12 @@ import {Resources} from "../resources"
 
 export class Background extends Actor{
 
-    onInitialize(engine){
-        this.graphics.use(Resources.Map.toSprite())
+    constructor() {
+        super({
+            pos: new Vector(0, 0)
+        });
+
+        this.scale = new Vector(0.7, 0.7);
+        this.graphics.use(Resources.Background.toSprite())
     }
 }
