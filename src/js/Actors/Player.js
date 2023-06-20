@@ -1,14 +1,15 @@
 import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction, Shape } from "excalibur";
 import {Resources} from "../resources"
 import { FlashLight } from "./Flashlight";
+import { Wall } from "./Mapcollision/Wall";
 
 export class Player extends Actor{
 
-    ROTATION_SPEED = 0.03
+    ROTATION_SPEED = 0.06
     isItemAdded = false
     ITEM
+    previousPos = new Vector(0, 0);
 
-    const
 
 
     constructor(x, y){
@@ -27,18 +28,29 @@ export class Player extends Actor{
     onInitialize(engine){
         this.game = engine
         this.graphics.use(Resources.Player.toSprite())
-        
+        this.on('precollision', (event) => {
+            if (event.other instanceof Wall){
+                this.pos = this.previousPos;
+            }
+        })
     }
 
 
     
     onPreUpdate(engine){
+        this.previousPos = this.pos.clone()
         this.movement(engine)
 
         if(engine.input.keyboard.wasPressed(Input.Keys.Space)){
             this.useFlashLight()
 
         }
+
+        if(engine.input.keyboard.wasPressed(Input.Keys.G)){
+            console.log(this.pos)
+
+        }
+
     }
 
     movement(engine){

@@ -7,6 +7,7 @@ import { Bench } from "../Actors/ParkObjects/Bench.js";
 import {Plant} from "../Actors/ParkObjects/Plant.js";
 import {Train} from "../Actors/train.js";
 import {ParkObjects} from "../Actors/ParkObjects/ParkObjects.js";
+import { Wall } from "../Actors/Mapcollision/Wall.js";
 
 
 export class Room extends Scene{
@@ -25,6 +26,26 @@ export class Room extends Scene{
 
         let plant = new Plant()
         this.add(plant)
+        
+        
+        //placeholder walls
+        //Ik heb het voor nu in de scene geregeld, als dit beter kan update mij -Jerrel 
+
+            //linker muur 
+            let leftwall = new Wall(-1405,-575,-1405,570)
+            this.add(leftwall)
+
+            //rechter muur
+            let rightwall = new Wall(1533,-633,1547,645)
+            this.add(rightwall)
+
+            //top wall
+            let topwall = new Wall(-1405, -575, 1533, -633)
+            this.add(topwall)
+
+            //lower wall
+            let lowerwall = new Wall(-1405,570,1533, 645)
+            this.add(lowerwall)
 
         //Add player to the game
         let player = new Player(0, 0)

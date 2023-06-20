@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Engine, Vector } from "excalibur"
+import { Actor, Engine, Vector, Color } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Room } from './Scenes/Room'
 import { StartGame } from './Scenes/StartGame.js'
@@ -10,7 +10,8 @@ export class Game extends Engine {
         super({ 
             viewport: {width:1664, height:936},
             resolution:{width: 1280, height: 720},
-            antialiasing:false
+            antialiasing:false,
+            backgroundColor: Color.Black,
          })
         this.start(ResourceLoader).then(() => this.startGame())
         ResourceLoader.suppressPlayButton = true
@@ -31,7 +32,7 @@ export class Game extends Engine {
         this.goToScene('StartGame')
 
 
-        //this.showDebug(true)
+        this.showDebug(true)
     }
 }
 
