@@ -6,6 +6,8 @@ import { Background } from "../Actors/Background";
 import { Bench } from "../Actors/ParkObjects/Bench.js";
 import {Plant} from "../Actors/ParkObjects/Plant.js";
 import {Train} from "../Actors/train.js";
+import {ParkObjects} from "../Actors/ParkObjects/ParkObjects.js";
+
 
 export class Room extends Scene{
     onInitialize(engine){
@@ -34,7 +36,9 @@ export class Room extends Scene{
 
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)
-        
+
+
+
     }
     
 

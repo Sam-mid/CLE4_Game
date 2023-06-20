@@ -39,8 +39,6 @@ export class Player extends Actor{
             this.useFlashLight()
 
         }
-
-
     }
 
     movement(engine){

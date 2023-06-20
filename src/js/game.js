@@ -13,6 +13,8 @@ export class Game extends Engine {
             antialiasing:false
          })
         this.start(ResourceLoader).then(() => this.startGame())
+        ResourceLoader.suppressPlayButton = true
+        ResourceLoader.backgroundColor = "#393d3c"
     }
 
     startGame() {
@@ -29,7 +31,7 @@ export class Game extends Engine {
         this.goToScene('StartGame')
 
 
-        this.showDebug(true)
+        //this.showDebug(true)
     }
 }
 

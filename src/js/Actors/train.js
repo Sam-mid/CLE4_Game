@@ -7,7 +7,7 @@ export class Train extends Actor{
         super({
             width: Resources.Train.width,
             height: Resources.Train.height,
-            pos: new Vector(0, -900),
+            pos: new Vector(0, -910),
             CollisionType: CollisionType.Active,
         });
 

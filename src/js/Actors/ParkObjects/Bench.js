@@ -8,7 +8,7 @@ export class Bench extends ParkObjects{
         super({
             width: Resources.Bench.width,
             height: Resources.Bench.height,
-            pos: new Vector(300, 0),
+            pos: new Vector(700, 0),
             scale: new Vector(0.4, 0.4),
             CollisionType: CollisionType.Fixed
         })
