@@ -9,10 +9,10 @@ export class Ghost extends Actor {
     ParkObjects;
 
     constructor() {
-        const circle = Shape.Circle(55);
+        const circle = Shape.Circle(700);
         super({
             pos: new Vector(0, 0),
-            scale: new Vector(0.5, 0.5),
+            scale: new Vector(0.06, 0.06),
             collider: circle,
             collisionType: CollisionType.Active,
         });

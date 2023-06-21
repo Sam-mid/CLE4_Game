@@ -1,4 +1,4 @@
-import { ImageSource, Sound, Resource, Loader, SpriteSheet, Animation, range } from 'excalibur'
+import {ImageSource, Sound, Resource, Loader, SpriteSheet, Animation, range, Rectangle} from 'excalibur'
 import fishImage from '../images/fish.png'
 //etc
 import logo from '../images/Logo.png'
@@ -29,7 +29,7 @@ const Resources = {
     Plant: new ImageSource(plant),
     Logo: new ImageSource(logo),
     StartButton : new ImageSource(StartButton),
-    Train: new ImageSource(train)
+    Train: new ImageSource(train),
 }
 
 
@@ -37,6 +37,6 @@ const Sounds = {
 
 }
 
-const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train])
+const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train,])
 
 export { Resources, ResourceLoader}

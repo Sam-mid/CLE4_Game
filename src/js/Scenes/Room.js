@@ -57,9 +57,8 @@ export class Room extends Scene{
             let lowerwall = new Wall(-1405,570,1533, 645)
             this.add(lowerwall)
 
-        //Add player to the game
-        let player = new Player(0, 0)
-        this.add(player)
+        let ghostSpawner = new GhostSpawner()
+        this.add(ghostSpawner)
 
         //add test ghost
         let ghost = new Ghost()
@@ -72,8 +71,9 @@ export class Room extends Scene{
         ghost2.moveToNearest(this.parkObjects)
 
 
-       // let ghostSpawner = new GhostSpawner()
-        //this.add(ghostSpawner)
+        //Add player to the game
+        let player = new Player(0, 0)
+        this.add(player)
 
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)

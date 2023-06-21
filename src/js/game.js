@@ -32,7 +32,7 @@ export class Game extends Engine {
         this.goToScene('StartGame')
 
 
-       // this.showDebug(true)
+       //this.showDebug(true)
     }
 }
 

@@ -7,7 +7,7 @@ export class GhostSpawner extends Actor {
     constructor() {
         super();
 
-        this.random = new Random(1337)
+        this.random = new Random(10000)
     }
 
     onInitialize(engine) {
@@ -25,8 +25,8 @@ export class GhostSpawner extends Actor {
         console.log("spawn")
 
         const ghost = new Ghost(
-            this.random.integer(0, 1000),
-            this.random.integer(0, 5000)
+            this.random.integer(0, 0),
+            this.random.integer(0, 0)
         )
         engine.currentScene.add(ghost)
     }
