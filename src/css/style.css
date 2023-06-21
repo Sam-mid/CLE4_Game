@@ -11,4 +11,5 @@ body {
 canvas{
     border-style: solid;
     border-color: white;
+    border-radius: 5vw;
 }

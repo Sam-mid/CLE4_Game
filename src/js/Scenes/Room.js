@@ -11,6 +11,9 @@ import { Wall } from "../Actors/Mapcollision/Wall.js";
 
 
 export class Room extends Scene{
+
+    parkObjects = []
+
     onInitialize(engine){
         console.log('Room loaded')
         
@@ -21,13 +24,19 @@ export class Room extends Scene{
         let train = new Train()
         this.add(train)
 
-        let bench = new Bench
+
+
+        let bench = new Bench()
         this.add(bench)
 
         let plant = new Plant()
         this.add(plant)
-        
-        
+
+        this.parkObjects.push(bench)
+        this.parkObjects.push(plant)
+
+
+
         //placeholder walls
         //Ik heb het voor nu in de scene geregeld, als dit beter kan update mij -Jerrel 
 
@@ -52,8 +61,14 @@ export class Room extends Scene{
         this.add(player)
 
         //add test ghost
-        let ghost = new Ghost
+        let ghost = new Ghost()
         this.add(ghost)
+        ghost.moveToNearest(this.parkObjects)
+
+        let ghost2 = new Ghost()
+        this.add(ghost2)
+        ghost2.position = new Vector(400, 500)
+        ghost2.moveToNearest(this.parkObjects)
 
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)
@@ -61,6 +76,6 @@ export class Room extends Scene{
 
 
     }
-    
+
 
 }

@@ -5,7 +5,7 @@ import { Resources } from "../resources";
 export class Ghost extends Actor {
     HEALTH = 20;
     interval;
-
+    ParkObjects;
 
     constructor() {
         const circle = Shape.Circle(55);
@@ -19,9 +19,24 @@ export class Ghost extends Actor {
 
 
 
-    moveTo(ParkObjects) {
-        const direction = ParkObjects.pos.sub(this.pos).normalize();
-        this.vel = direction.scale(100); // speed of 100 pixels per second
+    moveToNearest(array) {
+        let target = this.findNearest(array)
+        this.actions.meet(target, 100)
+    }
+
+    findNearest(array) {
+
+        // loop through all objects
+        for(let obs of array) {
+            let distance = Vector.distance(this.pos, obs.pos)
+            console.log(`this object is ${distance} pixels away`)
+
+            //choose a randome nummber in out the array
+            let random = Math.floor(Math.random() * array.length)
+            console.log(`the random number is ${random}`)
+
+            return array[random]
+        }
 
     }
 
