@@ -41,13 +41,13 @@ export class Room extends Scene{
         //placeholder walls
         //Ik heb het voor nu in de scene geregeld, als dit beter kan update mij -Jerrel 
 
-            //linker muur 
-            let leftwall = new Wall(-1405,-575,-1405,570)
-            this.add(leftwall)
+            // //linker muur 
+            // let leftwall = new Wall(-1405,-575,-1405,570)
+            // this.add(leftwall)
 
-            //rechter muur
-            let rightwall = new Wall(1533,-633,1547,645)
-            this.add(rightwall)
+            // //rechter muur
+            // let rightwall = new Wall(1533,-633,1547,645)
+            // this.add(rightwall)
 
             //top wall
             let topwall = new Wall(-1405, -575, 1533, -633)

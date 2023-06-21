@@ -40,12 +40,15 @@ export class Player extends Actor{
     onPreUpdate(engine){
         this.previousPos = this.pos.clone()
         this.movement(engine)
+        this.screenShortcut()
 
         if(engine.input.keyboard.wasPressed(Input.Keys.Space)){
             this.useFlashLight()
 
         }
 
+
+        //get player position
         if(engine.input.keyboard.wasPressed(Input.Keys.G)){
             console.log(this.pos)
 
@@ -113,6 +116,20 @@ export class Player extends Actor{
             this.isItemAdded = false
             console.log('Flashlight removed')
 
+        }
+    }
+
+
+
+
+    screenShortcut(){
+
+        let leftX = -1360
+        let rightX = 1490
+        if(this.pos.x < leftX){
+            this.pos = new Vector(rightX, this.pos.y)
+        } else if( this.pos.x > rightX){
+            this.pos = new Vector(leftX, this.pos.y)
         }
     }
 
