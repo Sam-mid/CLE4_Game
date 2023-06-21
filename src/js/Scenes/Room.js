@@ -8,6 +8,7 @@ import {Plant} from "../Actors/ParkObjects/Plant.js";
 import {Train} from "../Actors/train.js";
 import {ParkObjects} from "../Actors/ParkObjects/ParkObjects.js";
 import { Wall } from "../Actors/Mapcollision/Wall.js";
+import {GhostSpawner} from "../Actors/ghostSpawner.js";
 
 
 export class Room extends Scene{
@@ -70,12 +71,14 @@ export class Room extends Scene{
         ghost2.position = new Vector(400, 500)
         ghost2.moveToNearest(this.parkObjects)
 
+
+       // let ghostSpawner = new GhostSpawner()
+        //this.add(ghostSpawner)
+
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)
 
 
 
     }
-
-
 }

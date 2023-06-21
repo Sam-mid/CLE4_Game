@@ -1,5 +1,6 @@
 import { Actor, CollisionType, Input, Vector, Shape, } from "excalibur";
 import { Resources } from "../resources";
+import {GhostSpawner} from "./ghostSpawner.js";
 
 
 export class Ghost extends Actor {
@@ -25,19 +26,14 @@ export class Ghost extends Actor {
     }
 
     findNearest(array) {
-
         // loop through all objects
         for(let obs of array) {
-            let distance = Vector.distance(this.pos, obs.pos)
-            console.log(`this object is ${distance} pixels away`)
-
             //choose a randome nummber in out the array
             let random = Math.floor(Math.random() * array.length)
             console.log(`the random number is ${random}`)
 
             return array[random]
         }
-
     }
 
     onInitialize() {
