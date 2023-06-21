@@ -13,6 +13,7 @@ import bench from '../images/bench.png'
 import plant from '../images/plant.png'
 import background from '../images/background.png';
 import train from '../images/train.png';
+import road from '../images/map/road.png';
 
 //Player
 import player from '../images/GuardSprite.png'
@@ -30,6 +31,7 @@ const Resources = {
     Logo: new ImageSource(logo),
     StartButton : new ImageSource(StartButton),
     Train: new ImageSource(train),
+    Road: new ImageSource(road),
 }
 
 
@@ -37,6 +39,6 @@ const Sounds = {
 
 }
 
-const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train,])
+const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road])
 
 export { Resources, ResourceLoader}

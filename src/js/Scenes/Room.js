@@ -9,6 +9,7 @@ import {Train} from "../Actors/train.js";
 import {ParkObjects} from "../Actors/ParkObjects/ParkObjects.js";
 import { Wall } from "../Actors/Mapcollision/Wall.js";
 import {GhostSpawner} from "../Actors/ghostSpawner.js";
+import { Road } from "../Actors/Road.js";
 
 
 export class Room extends Scene{
@@ -19,6 +20,9 @@ export class Room extends Scene{
         console.log('Room loaded')
         
         //Map
+        let road = new Road
+        this.add(road)
+
         let background = new Background()
         this.add(background)
 
