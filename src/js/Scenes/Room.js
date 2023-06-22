@@ -12,6 +12,11 @@ import {GhostSpawner} from "../Actors/ghostSpawner.js";
 import { Road } from "../Actors/Road.js";
 
 
+//resources
+import {Resources, Sounds} from "../resources";
+
+
+
 export class Room extends Scene{
 
     parkObjects = []
@@ -84,7 +89,17 @@ export class Room extends Scene{
 
         
 
+        
+
+    }
 
 
+    onActivate(){
+        Sounds.BGMusic.loop = true
+        Sounds.BGMusic.play(0.6)
+    }
+
+    onDeactivate(){
+        Sounds.BGMusic.pause()
     }
 }

@@ -19,6 +19,9 @@ import road from '../images/map/road.png';
 import player from '../images/GuardSprite.png'
 import flashlight from '../images/flashlight.png'
 
+//sounds
+import bgmusic from '../Sounds/Music.mp3'
+
 const Resources = {
     Fish: new ImageSource(fishImage),
     Background: new ImageSource(background),
@@ -36,9 +39,11 @@ const Resources = {
 
 
 const Sounds = {
+    BGMusic: new Sound(bgmusic)
 
 }
 
-const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road])
+const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road,
+Sounds.BGMusic])
 
-export { Resources, ResourceLoader}
+export { Resources, ResourceLoader, Sounds}
