@@ -1,12 +1,14 @@
-import { Actor, CollisionType, Input, Vector, Shape, } from "excalibur";
+import { Actor, CollisionType, Input, Vector, Shape, Timer } from "excalibur";
 import { Resources } from "../resources";
 import {GhostSpawner} from "./ghostSpawner.js";
 
 
 export class Ghost extends Actor {
-    HEALTH = 20;
-    interval;
-    ParkObjects;
+    HEALTH
+    ParkObjects
+    livePoints = 20
+
+    shouldApplyDamage = true
 
     constructor() {
         const circle = Shape.Circle(700);
@@ -36,37 +38,60 @@ export class Ghost extends Actor {
         }
     }
 
-    onInitialize() {
+    onInitialize(engine) {
+        this.game = engine
         this.graphics.use(Resources.Ghost.toSprite());
+
     }
 
-    hitByFlashlight(DAMAGE) {
-        console.log(`The flashlight gives ${DAMAGE}`);
-        clearInterval(this.interval); // Clear any existing interval
-        this.interval = setInterval(() => {
-            this.updateHealthBar(DAMAGE);
-        }, 500);
+
+    handleDamage(itemDAMAGE){
+    //itemDAMAGE heeft de waarde gekregen van Flashlight, wil je dit veranderen check het daar
+
+
+    //Inplaats van timer rekent hij nu per 40 frames
+    let frameCount = 0
+
+        this.game.currentScene.engine.onPostUpdate = () => {
+            frameCount++;     
+
+            // 40 staat voor dat het per 40 frames damage uitvoert, hoe hoger hoe langzamer
+            if (frameCount % 40 === 0 && this.shouldApplyDamage) {
+                this.applyDamage(itemDAMAGE)
+                
+            }
+            }
+
     }
 
-    updateHealthBar(DAMAGE) {
-        this.takeDamage(DAMAGE);
-    }
+    applyDamage(itemDAMAGE){
 
-    takeDamage(DAMAGE) {
-        console.log(`Ghost: the amount taken is ${DAMAGE}`);
-        console.log(`Ghost: The current health is ${this.HEALTH}`);
+        //livePoints is meegekregen voor de geest atm is het 20
+        //check handle damage voor info over itemDAMAGE
+        this.livePoints -= itemDAMAGE
+        console.log(this.livePoints)
 
-        this.HEALTH -= DAMAGE;
-        console.log(this.HEALTH);
+        this.livePoints = Math.max(0, this.livePoints)
+        this.livePoints = Math.min(20, this.livePoints)
 
-        this.HEALTH = Math.max(0, this.HEALTH);
-        this.HEALTH = Math.min(20, this.HEALTH);
 
-        if (this.HEALTH === 0) {
-            this.kill();
-            clearInterval(this.interval);
+        if(this.livePoints === 0){
+            this.kill()
+            console.log(this.livePoints)
         }
+        
     }
 
+
+
+    //Wanneer de licht van de Item niet op de geest zit wordt dit uitgevoerd
+    stopDamage(){
+        this.shouldApplyDamage = false
+    }
+
+    //Wanneer de licht van de Item op de geest zit wordt dit uitgevoerd
+    startDamage(){
+        this.shouldApplyDamage = true
+    }
 
 }

@@ -82,6 +82,8 @@ export class Room extends Scene{
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)
 
+        
+
 
 
     }
