@@ -5,10 +5,12 @@ import {ParkObjects} from "./ParkObjects.js";
 export class Plant extends ParkObjects{
 
     constructor(){
+        const circle = Shape.Circle(700);
         super({
             width: Resources.Plant.width,
             height: Resources.Plant.height,
             scale: new Vector(0.08 ,0.08),
+            collider: circle,
             CollisionType: CollisionType.Fixed
         })
     }

@@ -1,5 +1,5 @@
-import { Actor, CollisionType, Input, Vector, Shape, Timer } from "excalibur";
-import { Resources } from "../resources";
+import {Actor, CollisionType, Input, Vector, Shape, Timer, GraphicsGroup, pixelSnapEpsilon} from "excalibur";
+import {Resources} from "../resources";
 import {GhostSpawner} from "./ghostSpawner.js";
 
 
@@ -7,8 +7,6 @@ export class Ghost extends Actor {
     HEALTH
     ParkObjects
     livePoints = 20
-
-    shouldApplyDamage = true
 
     constructor() {
         const circle = Shape.Circle(700);
@@ -20,7 +18,6 @@ export class Ghost extends Actor {
     }
 
 
-
     moveToNearest(array) {
         let target = this.findNearest(array)
         this.actions.meet(target, 100)
@@ -28,7 +25,7 @@ export class Ghost extends Actor {
 
     findNearest(array) {
         // loop through all objects
-        for(let obs of array) {
+        for (let obs of array) {
             //choose a randome nummber in out the array
             let random = Math.floor(Math.random() * array.length)
             console.log(`the random number is ${random}`)
@@ -39,31 +36,32 @@ export class Ghost extends Actor {
 
     onInitialize(engine) {
         this.game = engine
-        this.graphics.use(Resources.Ghost.toSprite());
         this.graphics.opacity = 0.7
+        this.graphics.use(Resources.Ghost.toSprite())
+
     }
 
 
-    handleDamage(itemDAMAGE){
-    //itemDAMAGE heeft de waarde gekregen van Flashlight, wil je dit veranderen check het daar
+    handleDamage(itemDAMAGE) {
+        //itemDAMAGE heeft de waarde gekregen van Flashlight, wil je dit veranderen check het daar
 
 
-    //Inplaats van timer rekent hij nu per 40 frames
-    let frameCount = 0
+        //Inplaats van timer rekent hij nu per 40 frames
+        let frameCount = 0
 
         this.game.currentScene.engine.onPostUpdate = () => {
-            frameCount++;     
+            frameCount++;
 
             // 40 staat voor dat het per 40 frames damage uitvoert, hoe hoger hoe langzamer
             if (frameCount % 40 === 0 && this.shouldApplyDamage) {
                 this.applyDamage(itemDAMAGE)
-                
+                this.graphics.use(Resources.GhostDamage.toSprite())
             }
-            }
+        }
 
     }
 
-    applyDamage(itemDAMAGE){
+    applyDamage(itemDAMAGE) {
 
         //livePoints is meegekregen voor de geest atm is het 20
         //check handle damage voor info over itemDAMAGE
@@ -74,22 +72,22 @@ export class Ghost extends Actor {
         this.livePoints = Math.min(20, this.livePoints)
 
 
-        if(this.livePoints === 0){
+        if (this.livePoints === 0) {
             this.kill()
             console.log(this.livePoints)
         }
-        
-    }
 
+    }
 
 
     //Wanneer de licht van de Item niet op de geest zit wordt dit uitgevoerd
-    stopDamage(){
+    stopDamage() {
         this.shouldApplyDamage = false
+
     }
 
     //Wanneer de licht van de Item op de geest zit wordt dit uitgevoerd
-    startDamage(){
+    startDamage() {
         this.shouldApplyDamage = true
     }
 

@@ -7,7 +7,14 @@ export class ParkObjects extends Actor {
     Object
 
     onInitialize(engine) {
-
     }
+
+//waneer een instance van deze actor wordt geraakt door een andere actor registreer dan de collision
+    onCollisionStart(event) {
+        this.Object = event.other
+        this.Object.collision = true
+        console.log(this.Object.collision)
+    }
+
 }
 
