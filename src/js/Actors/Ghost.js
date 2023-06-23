@@ -8,6 +8,7 @@ export class Ghost extends Actor {
     ParkObjects
     livePoints = 20
 
+
     constructor() {
         const circle = Shape.Circle(700);
         super({
@@ -37,8 +38,14 @@ export class Ghost extends Actor {
     onInitialize(engine) {
         this.game = engine
         this.graphics.opacity = 0.7
-        this.graphics.use(Resources.Ghost.toSprite())
-
+        // choose between one of the two sprites for the ghost
+        // Randomly choose between two sprites
+        const randomSpriteIndex = Math.floor(Math.random() * 2);
+        if (randomSpriteIndex === 0) {
+            this.graphics.use(Resources.Ghost.toSprite());
+        } else {
+            this.graphics.use(Resources.Ghost2.toSprite());
+        }
     }
 
 

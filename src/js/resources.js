@@ -7,6 +7,7 @@ import StartButton from '../images/StartButton.png'
 //Ghost
 import ghost from '../images/ghostsketch.png'
 import ghostDamage from '../images/ghostDamage.png'
+import ghost2 from '../images/ghost2.png'
 
 //Map and objects
 import map from '../images/Map/placeholdermap.png'
@@ -38,7 +39,8 @@ const Resources = {
     Train: new ImageSource(train),
     Road: new ImageSource(road),
     Tree: new ImageSource(tree),
-    GhostDamage: new ImageSource(ghostDamage)
+    GhostDamage: new ImageSource(ghostDamage),
+    Ghost2: new ImageSource(ghost2)
 }
 
 
@@ -47,7 +49,7 @@ const Sounds = {
 
 }
 
-const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage,
+const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2,
 Sounds.BGMusic])
 
 export { Resources, ResourceLoader, Sounds}
