@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Input, Scene, Sound, Vector } from "excalibur";
+import {Actor, CollisionType, Input, Scene, Sound, Timer, Vector} from "excalibur";
 import { Player } from "../Actors/Player";
 import { FlashLight } from "../Actors/Flashlight";
 import { Ghost } from "../Actors/Ghost";
@@ -59,6 +59,7 @@ export class Room extends Scene{
         this.add(tree2)
         tree2.pos = new Vector(-300, 300)
 
+
         this.parkObjects.push(bench)
         this.parkObjects.push(bench2)
         this.parkObjects.push(plant)
@@ -86,10 +87,13 @@ export class Room extends Scene{
             let lowerwall = new Wall(-1405,570,1533, 645)
             this.add(lowerwall)
 
-        let ghostSpawner = new GhostSpawner()
+        let ghostSpawner = new GhostSpawner(this.parkObjects)
         this.add(ghostSpawner)
+        ghostSpawner.pos = new Vector(-800,0)
 
-        //add test ghost
+
+
+        /*add test ghost
         let ghost = new Ghost()
         this.add(ghost)
         ghost.moveToNearest(this.parkObjects)
@@ -98,7 +102,7 @@ export class Room extends Scene{
         this.add(ghost2)
         ghost2.position = new Vector(400, 500)
         ghost2.moveToNearest(this.parkObjects)
-
+        */
 
         //Add player to the game
         let player = new Player(0, 0)

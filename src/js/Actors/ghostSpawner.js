@@ -3,10 +3,11 @@ import { Resources } from "../resources";
 import { Ghost} from "./Ghost.js";
 
 export class GhostSpawner extends Actor {
+    objects = []
 
-    constructor() {
+    constructor(objects) {
         super();
-
+        this.objects = objects
         this.random = new Random(10000)
     }
 
@@ -17,6 +18,7 @@ export class GhostSpawner extends Actor {
             repeats: true
         })
         engine.currentScene.add(this.timer)
+        this.spawn(engine);
         this.timer.start()
 
     }
@@ -29,6 +31,8 @@ export class GhostSpawner extends Actor {
             this.random.integer(0, 0)
         )
         engine.currentScene.add(ghost)
+        ghost.pos = new Vector(this.random.integer(-100, 100), this.random.integer(-600, 600))
+        ghost.moveToNearest(this.objects)
     }
 
 }

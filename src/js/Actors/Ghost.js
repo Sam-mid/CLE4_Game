@@ -13,7 +13,6 @@ export class Ghost extends Actor {
     constructor() {
         const circle = Shape.Circle(700);
         super({
-            pos: new Vector(0, 0),
             scale: new Vector(0.06, 0.06),
             collider: circle,
             collisionType: CollisionType.Active,
@@ -41,7 +40,6 @@ export class Ghost extends Actor {
     onInitialize(engine) {
         this.game = engine
         this.graphics.use(Resources.Ghost.toSprite());
-
     }
 
 
