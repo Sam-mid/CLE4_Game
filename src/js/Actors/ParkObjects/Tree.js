@@ -2,20 +2,18 @@ import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction, Shape } 
 import {Resources} from "../../resources.js"
 import {ParkObjects} from "./ParkObjects.js";
 
-export class Bench extends ParkObjects{
+export class Tree extends ParkObjects{
 
     constructor(){
         super({
-            width: Resources.Bench.width,
-            height: Resources.Bench.height,
-            scale: new Vector(0.15, 0.15),
+            width: Resources.Tree.width,
+            height: Resources.Tree.height,
+            scale: new Vector(0.2 ,0.2),
             CollisionType: CollisionType.Fixed
         })
     }
 
     onInitialize(engine){
-       let sprite = Resources.Bench.toSprite()
-        //sprite.flipVertical = true
-        this.graphics.use(sprite)
+        this.graphics.use(Resources.Tree.toSprite())
     }
 }

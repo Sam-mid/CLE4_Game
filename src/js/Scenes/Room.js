@@ -10,10 +10,11 @@ import {ParkObjects} from "../Actors/ParkObjects/ParkObjects.js";
 import { Wall } from "../Actors/Mapcollision/Wall.js";
 import {GhostSpawner} from "../Actors/ghostSpawner.js";
 import { Road } from "../Actors/Road.js";
-
+import {Tree} from "../Actors/ParkObjects/Tree.js";
 
 //resources
 import {Resources, Sounds} from "../resources";
+
 
 
 
@@ -34,17 +35,36 @@ export class Room extends Scene{
         let train = new Train()
         this.add(train)
 
-
-
         let bench = new Bench()
         this.add(bench)
+        bench.pos = new Vector(1300, -250)
+
+        let bench2 = new Bench()
+        this.add(bench2)
+        bench2.pos = new Vector(-600, -250)
 
         let plant = new Plant()
         this.add(plant)
+        plant.pos = new Vector(-1200, -200)
+
+        let plant2 = new Plant()
+        this.add(plant2)
+        plant2.pos = new Vector(-1300, 400)
+
+        let tree = new Tree()
+        this.add(tree)
+        tree.pos = new Vector(1055, 230)
+
+        let tree2 = new Tree()
+        this.add(tree2)
+        tree2.pos = new Vector(-300, 300)
 
         this.parkObjects.push(bench)
+        this.parkObjects.push(bench2)
         this.parkObjects.push(plant)
-
+        this.parkObjects.push(plant2)
+        this.parkObjects.push(tree)
+        this.parkObjects.push(tree2)
 
 
         //placeholder walls
@@ -86,10 +106,6 @@ export class Room extends Scene{
 
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)
-
-        
-
-        
 
     }
 

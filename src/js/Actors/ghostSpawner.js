@@ -13,7 +13,7 @@ export class GhostSpawner extends Actor {
     onInitialize(engine) {
         this.timer = new Timer({
             fcn: () => this.spawn(engine),
-            interval: 1000,
+            interval: 5000,
             repeats: true
         })
         engine.currentScene.add(this.timer)

@@ -8,8 +8,7 @@ export class Plant extends ParkObjects{
         super({
             width: Resources.Plant.width,
             height: Resources.Plant.height,
-            pos: new Vector(500, 0),
-            scale: new Vector(1 ,1),
+            scale: new Vector(0.08 ,0.08),
             CollisionType: CollisionType.Fixed
         })
     }
