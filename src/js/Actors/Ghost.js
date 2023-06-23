@@ -58,7 +58,6 @@ export class Ghost extends Actor {
                 this.graphics.use(Resources.GhostDamage.toSprite())
             }
         }
-
     }
 
     applyDamage(itemDAMAGE) {
