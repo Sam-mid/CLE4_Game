@@ -5,7 +5,7 @@ export class Background extends Actor{
 
     constructor() {
         super({
-            pos: new Vector(0, 0)
+            pos: new Vector(-60, -100)
         });
 
         this.scale = new Vector(0.7, 0.7);

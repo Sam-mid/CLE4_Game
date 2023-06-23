@@ -40,6 +40,7 @@ export class Ghost extends Actor {
     onInitialize(engine) {
         this.game = engine
         this.graphics.use(Resources.Ghost.toSprite());
+        this.graphics.opacity = 0.7
     }
 
 
