@@ -1,4 +1,4 @@
-import {Actor, CollisionType, Input, Scene, Sound, Timer, Vector} from "excalibur";
+import {Actor, CollisionType, Input, Scene, Sound, Timer, Vector, Label, FontUnit, Font, Color} from "excalibur";
 import { Player } from "../Actors/Player";
 import { FlashLight } from "../Actors/Flashlight";
 import { Ghost } from "../Actors/Ghost";
@@ -21,6 +21,9 @@ import {Resources, Sounds} from "../resources";
 export class Room extends Scene{
 
     parkObjects = []
+    score
+    mylabel
+
 
     onInitialize(engine){
         console.log('Room loaded')
@@ -111,8 +114,39 @@ export class Room extends Scene{
         //Camera follow
         this.camera.strategy.elasticToActor(player, 0.05, 0,5)
 
+        this.score = 0
+        this.mylabel = new Label({
+            text: `Score: ${this.score}`,
+            pos: new Vector(550, 100),
+            font: new Font({
+                family: 'Georgia',
+                size: 40,
+                unit: FontUnit.px,
+                color: Color.Black
+            })
+        })
+        this.add(this.mylabel)
+
     }
 
+    onPostUpdate(_engine, _delta) {
+        const cameraX = this.camera.pos.x;
+        const cameraY = this.camera.pos.y;
+        const offsetX = 300; // X-offset van de scorelabel ten opzichte van de camera
+        const offsetY = -300; // Y-offset van de scorelabel ten opzichte van de camera
+
+// Bereken de nieuwe positie van de scorelabel gebaseerd op de camera positie
+        const scoreLabelX = cameraX + offsetX;
+        const scoreLabelY = cameraY + offsetY;
+
+// Stel de nieuwe positie in voor de scorelabel
+        this.mylabel.pos = new Vector(scoreLabelX, scoreLabelY);
+    }
+
+    updateScore() {
+        this.score++
+        this.mylabel.text = `Score: ${this.score}`
+    }
 
     onActivate(){
         Sounds.BGMusic.loop = true

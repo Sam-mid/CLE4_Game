@@ -18,11 +18,16 @@ export class Ghost extends Actor {
         });
     }
 
+    //when moving, look towards the target
+
 
     moveToNearest(array) {
         let target = this.findNearest(array)
         this.actions.meet(target, 100)
     }
+
+
+
 
     findNearest(array) {
         // loop through all objects
@@ -80,6 +85,7 @@ export class Ghost extends Actor {
 
         if (this.livePoints === 0) {
             this.kill()
+            this.game.currentScene.updateScore()
             console.log(this.livePoints)
         }
 
@@ -96,5 +102,7 @@ export class Ghost extends Actor {
     startDamage() {
         this.shouldApplyDamage = true
     }
+
+
 
 }
