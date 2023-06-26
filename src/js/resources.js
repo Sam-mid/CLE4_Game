@@ -8,6 +8,7 @@ import StartButton from '../images/StartButton.png'
 import ghost from '../images/ghostsketch.png'
 import ghostDamage from '../images/ghostDamage.png'
 import ghost2 from '../images/ghost2.png'
+import ghostHPBar from '../images/Ghost/ghosthealth.png'
 
 //Map and objects
 import map from '../images/Map/placeholdermap.png'
@@ -24,6 +25,7 @@ import flashlight from '../images/flashlight.png'
 
 //sounds
 import bgmusic from '../Sounds/Music.mp3'
+import { Ghost } from './Actors/Ghost'
 
 const Resources = {
     Fish: new ImageSource(fishImage),
@@ -39,8 +41,10 @@ const Resources = {
     Train: new ImageSource(train),
     Road: new ImageSource(road),
     Tree: new ImageSource(tree),
+
     GhostDamage: new ImageSource(ghostDamage),
-    Ghost2: new ImageSource(ghost2)
+    Ghost2: new ImageSource(ghost2),
+    GhostHP: new ImageSource(ghostHPBar)
 }
 
 
@@ -49,7 +53,8 @@ const Sounds = {
 
 }
 
-const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2,
+const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, 
+    Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2, Resources.GhostHP,
 Sounds.BGMusic])
 
 export { Resources, ResourceLoader, Sounds}
