@@ -116,7 +116,7 @@ export class Room extends Scene{
 
         this.score = 0
         this.mylabel = new Label({
-            text: `Score: ${this.score}`,
+            text: `Ghosts killed: ${this.score}`,
             pos: new Vector(550, 100),
             font: new Font({
                 family: 'Georgia',
@@ -145,7 +145,7 @@ export class Room extends Scene{
 
     updateScore() {
         this.score++
-        this.mylabel.text = `Score: ${this.score}`
+        this.mylabel.text = `Ghosts killed: ${this.score}`
     }
 
     onActivate(){

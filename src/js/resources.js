@@ -44,7 +44,7 @@ const Resources = {
 
     GhostDamage: new ImageSource(ghostDamage),
     Ghost2: new ImageSource(ghost2),
-    GhostHP: new ImageSource(ghostHPBar)
+    GhostHP: new ImageSource(ghostHPBar),
 }
 
 
