@@ -18,6 +18,7 @@ import background from '../images/background.png';
 import train from '../images/train.png';
 import road from '../images/map/road.png';
 import tree from '../images/map/Tree.png';
+import winScreen from "../images/WinScreen.jpeg";
 
 //Player
 import player from '../images/GuardSprite.png'
@@ -41,6 +42,7 @@ const Resources = {
     Train: new ImageSource(train),
     Road: new ImageSource(road),
     Tree: new ImageSource(tree),
+    WinScreen: new ImageSource(winScreen),
 
     GhostDamage: new ImageSource(ghostDamage),
     Ghost2: new ImageSource(ghost2),
@@ -54,7 +56,7 @@ const Sounds = {
 }
 
 const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, 
-    Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2, Resources.GhostHP,
+    Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2, Resources.GhostHP, Resources.WinScreen,
 Sounds.BGMusic])
 
 export { Resources, ResourceLoader, Sounds}

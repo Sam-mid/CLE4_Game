@@ -27,7 +27,8 @@ export class Room extends Scene{
 
     onInitialize(engine){
         console.log('Room loaded')
-        
+
+
         //Map
         let road = new Road
         this.add(road)
@@ -125,11 +126,16 @@ export class Room extends Scene{
                 color: Color.Black
             })
         })
-        this.add(this.mylabel)
-
+        this.add(this.mylabel);
     }
 
     onPostUpdate(_engine, _delta) {
+
+        //als de score gelijk aan 20 is ga naar de end scene
+        if(this.score === 2){
+            this.on("postUpdate", (event)=>this.engine.goToScene('winScreen'))
+        }
+
         const cameraX = this.camera.pos.x;
         const cameraY = this.camera.pos.y;
         const offsetX = 300; // X-offset van de scorelabel ten opzichte van de camera
