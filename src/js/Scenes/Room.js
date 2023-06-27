@@ -222,8 +222,13 @@ export class Room extends Scene {
 
         const countdown = () => {
             if (remainingTime === 0) {
-                // Timer is op nul, wissel van scène
-                this.engine.goToScene('lossScreen');
+                // check if score is 10 if not go to loss screen
+                if (this.score === 10) {
+                    this.engine.goToScene('winScreen');
+                }
+                else {
+                    this.engine.goToScene('lossScreen');
+                }
             } else {
                 // Verminder de resterende tijd en update de weergave
                 remainingTime--;
