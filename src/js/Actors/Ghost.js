@@ -8,8 +8,12 @@ export class Ghost extends Actor {
     HEALTH
     ParkObjects
     livePoints = 20
+<<<<<<< HEAD
     seeHP
 
+=======
+    randomSpriteIndex = Math.floor(Math.random() * 2);
+>>>>>>> cad8fc6b49ada8f0d6fd9d358da0e0b600ae3cf2
 
     constructor() {
         const circle = Shape.Circle(700);
@@ -48,8 +52,7 @@ export class Ghost extends Actor {
         this.graphics.opacity = 0.7
         // choose between one of the two sprites for the ghost
         // Randomly choose between two sprites
-        const randomSpriteIndex = Math.floor(Math.random() * 2);
-        if (randomSpriteIndex === 0) {
+        if (this.randomSpriteIndex === 0) {
             this.graphics.use(Resources.Ghost.toSprite());
         } else {
             this.graphics.use(Resources.Ghost2.toSprite());
@@ -124,8 +127,9 @@ export class Ghost extends Actor {
     //Wanneer de licht van de Item op de geest zit wordt dit uitgevoerd
     startDamage() {
         this.shouldApplyDamage = true
-        this.graphics.use(Resources.GhostDamage.toSprite())
-        
+        this.graphics.use(Resources.GhostDamage.toSprite());
+
+
     }
 
     showHP(){

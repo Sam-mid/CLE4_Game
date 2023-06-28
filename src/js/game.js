@@ -3,6 +3,8 @@ import { Actor, Engine, Vector, Color } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Room } from './Scenes/Room'
 import { StartGame } from './Scenes/StartGame.js'
+import {winScreen} from "./Scenes/winScreen.js";
+import {lossScreen} from "./Scenes/lossSreen.js";
 
 export class Game extends Engine {
 
@@ -26,6 +28,9 @@ export class Game extends Engine {
         //this.addScene ('Startmenu', new StartMenu)
         this.addScene('StartGame', new StartGame)
         this.addScene ('Room', new Room)
+        this.addScene ('winScreen', new winScreen)
+        this.addScene('lossScreen', new lossScreen)
+
 
 
         //Load first Scene
