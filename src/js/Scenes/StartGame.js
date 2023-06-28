@@ -5,11 +5,18 @@ import {ResourceLoader} from "../resources.js";
 
 //background
 import bgmusic from "../../Sounds/menu.mp3"
+import {Background} from "../Actors/Background.js";
+import {Train} from "../Actors/train.js";
 
 
 export class StartGame extends Scene{
 
     onInitialize(engine) {
+
+        const background = new Background()
+        background.pos  = new Vector(0,450)
+        this.add(background)
+
         const logo = new Logo()
         this.add(logo)
 
