@@ -84,8 +84,6 @@ export class Room extends Scene {
         this.add(tree2)
         tree2.pos = new Vector(-300, 300)
 
-        let parkmeter = new ParkMeter
-        this.add(parkmeter)
 
 
         this.parkObjects.push(bench)

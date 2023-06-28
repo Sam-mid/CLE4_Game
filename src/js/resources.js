@@ -58,14 +58,11 @@ const Resources = {
     GhostDamage: new ImageSource(ghostDamage),
     Ghost2: new ImageSource(ghost2),
     GhostHP: new ImageSource(ghostHPBar),
-<<<<<<< HEAD
 
     HP1: new ImageSource(hp1),
     HP2: new ImageSource(hp2),
     HP3: new ImageSource(hp3),
     HP4: new ImageSource(hp4),
-=======
->>>>>>> cad8fc6b49ada8f0d6fd9d358da0e0b600ae3cf2
 }
 
 
@@ -78,12 +75,9 @@ const Sounds = {
 
 
 const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, 
-<<<<<<< HEAD
     Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2, Resources.GhostHP,
     Resources.HP1, Resources.HP2, Resources.HP3,  Resources.HP4, Resources.PlayerSheet,
-=======
     Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2, Resources.GhostHP, Resources.WinScreen, Resources.LossScreen,
->>>>>>> cad8fc6b49ada8f0d6fd9d358da0e0b600ae3cf2
 Sounds.BGMusic])
 
 export { Resources, ResourceLoader, Sounds}

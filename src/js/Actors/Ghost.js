@@ -8,12 +8,9 @@ export class Ghost extends Actor {
     HEALTH
     ParkObjects
     livePoints = 20
-<<<<<<< HEAD
     seeHP
 
-=======
     randomSpriteIndex = Math.floor(Math.random() * 2);
->>>>>>> cad8fc6b49ada8f0d6fd9d358da0e0b600ae3cf2
 
     constructor() {
         const circle = Shape.Circle(700);
