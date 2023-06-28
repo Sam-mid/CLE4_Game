@@ -8,6 +8,7 @@ export class Ghost extends Actor {
     HEALTH
     ParkObjects
     livePoints = 20
+    seeHP
 
 
     constructor() {
@@ -17,6 +18,7 @@ export class Ghost extends Actor {
             collider: circle,
             collisionType: CollisionType.Active,
         });
+
     }
 
     //when moving, look towards the target
@@ -55,9 +57,9 @@ export class Ghost extends Actor {
     }
 
 
-    handleDamage(itemDAMAGE) {
+    handleDamage(itemDAMAGE, canSeeHP) {
         //itemDAMAGE heeft de waarde gekregen van Flashlight, wil je dit veranderen check het daar
-        this.showHP()
+        this.showHP(canSeeHP)
 
         //Inplaats van timer rekent hij nu per 40 frames
         let frameCount = 0
@@ -66,8 +68,9 @@ export class Ghost extends Actor {
             frameCount++;
 
             // 40 staat voor dat het per 40 frames damage uitvoert, hoe hoger hoe langzamer
-            if (frameCount % 40 === 0 && this.shouldApplyDamage) {
+            if (frameCount % 80 === 0 && this.shouldApplyDamage) {
                 this.applyDamage(itemDAMAGE)
+                
             }
         }
     }
@@ -82,13 +85,29 @@ export class Ghost extends Actor {
         this.livePoints = Math.max(0, this.livePoints)
         this.livePoints = Math.min(20, this.livePoints)
 
+        let tik = this.livePoints
+        this.HEALTH.updateHealth(tik)
 
-        if (this.livePoints === 0) {
-            this.kill()
+
+        if (this.livePoints === 0 && this.active) {
+            this.shouldApplyDamage = false
             this.game.currentScene.updateScore()
-            console.log(this.livePoints)
+            this.HEALTH = new HPBAR
+
+            if (!this.isKilled()) {
+                console.log(this.livePoints)
+                this.kill()
+            }
+
+            
         }
 
+    }
+
+    handleDeath(){
+        this.kill()
+        this.game.currentScene.updateScore()
+        console.log(this.livePoints)
     }
 
 
@@ -110,10 +129,16 @@ export class Ghost extends Actor {
     }
 
     showHP(){
-        this.HEALTH = new HPBAR
-        this.addChild(this.HEALTH)
+        if(!this.seeHP) {
+            this.seeHP = true
+            this.HEALTH = new HPBAR
+            this.addChild(this.HEALTH)
+        }else if(this.seeHP){
+            this.removeChild(this.HEALTH)
+            this.seeHP = false
+
+
+        }
     }
-
-
 
 }

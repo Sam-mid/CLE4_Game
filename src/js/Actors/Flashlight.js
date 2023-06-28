@@ -6,6 +6,7 @@ export class FlashLight extends Actor {
     canDamage = false
     isColliding = false
     DAMAGE = 5
+    canSeeHp = false
 
     constructor() {
         super({
@@ -32,8 +33,9 @@ export class FlashLight extends Actor {
                     if(event.other instanceof Ghost){
                         this.isColliding = true
                         this.canDamage = true
+                        this.canSeeHp = true
                         event.other.startDamage()
-                        event.other.handleDamage(this.DAMAGE)
+                        event.other.handleDamage(this.DAMAGE,this.canSeeHp)
                     }
                 })
         

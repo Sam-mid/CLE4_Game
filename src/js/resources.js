@@ -9,6 +9,11 @@ import ghost from '../images/ghostsketch.png'
 import ghostDamage from '../images/ghostDamage.png'
 import ghost2 from '../images/ghost2.png'
 import ghostHPBar from '../images/Ghost/ghosthealth.png'
+    //hp bars
+    import hp1 from '../images/Ghost/states/hp1.png'
+    import hp2 from '../images/Ghost/states/hp2.png'
+    import hp3 from '../images/Ghost/states/hp3.png'
+    import hp4 from '../images/Ghost/states/hp4.png'
 
 //Map and objects
 import map from '../images/Map/placeholdermap.png'
@@ -21,6 +26,7 @@ import tree from '../images/map/Tree.png';
 
 //Player
 import player from '../images/GuardSprite.png'
+import playersheet from '../images/Player/GuardSheet.png'
 import flashlight from '../images/flashlight.png'
 
 //sounds
@@ -30,6 +36,7 @@ import { Ghost } from './Actors/Ghost'
 const Resources = {
     Fish: new ImageSource(fishImage),
     Background: new ImageSource(background),
+    Player: new ImageSource(player),
     Player: new ImageSource(player),
     Flashlight: new ImageSource(flashlight),
     Ghost: new ImageSource(ghost),
@@ -42,9 +49,16 @@ const Resources = {
     Road: new ImageSource(road),
     Tree: new ImageSource(tree),
 
+    PlayerSheet: new ImageSource(playersheet),
+
     GhostDamage: new ImageSource(ghostDamage),
     Ghost2: new ImageSource(ghost2),
-    GhostHP: new ImageSource(ghostHPBar)
+    GhostHP: new ImageSource(ghostHPBar),
+
+    HP1: new ImageSource(hp1),
+    HP2: new ImageSource(hp2),
+    HP3: new ImageSource(hp3),
+    HP4: new ImageSource(hp4),
 }
 
 
@@ -53,8 +67,12 @@ const Sounds = {
 
 }
 
+
+
+
 const ResourceLoader = new Loader([Resources.Fish, Resources.Player, Resources.Background, Resources.Flashlight, Resources.Ghost, Resources.Map, Resources.Bench, Resources.Plant, 
     Resources.Logo, Resources.StartButton, Resources.Train, Resources.Road, Resources.Tree, Resources.GhostDamage, Resources.Ghost2, Resources.GhostHP,
+    Resources.HP1, Resources.HP2, Resources.HP3,  Resources.HP4, Resources.PlayerSheet,
 Sounds.BGMusic])
 
 export { Resources, ResourceLoader, Sounds}

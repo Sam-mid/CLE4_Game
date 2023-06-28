@@ -1,11 +1,19 @@
-import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction, Shape } from "excalibur";
+import { Actor, Camera, CollisionType, Input, Vector, Scene, Direction, Shape, SpriteSheet } from "excalibur";
 import {Resources} from "../resources"
 import { FlashLight } from "./Flashlight";
 import { Wall } from "./Mapcollision/Wall";
 
 export class Player extends Actor{
 
-    ROTATION_SPEED = 0.06
+    //Spritesheet
+    Idle
+    FlashOn
+    GuardSheet
+
+
+
+    //Player stats
+    ROTATION_SPEED = 0.05
     isItemAdded = false
     ITEM
     previousPos = new Vector(0, 0);
@@ -15,6 +23,8 @@ export class Player extends Actor{
     constructor(x, y){
         
      const circle = Shape.Circle(55)
+
+
     super({
         pos: new Vector(x, y),  
             scale: new Vector(0.8, 0.8),
@@ -22,12 +32,25 @@ export class Player extends Actor{
             CollisionType: CollisionType.Active,
             collider: circle
         })
+        this.GuardSheet = SpriteSheet.fromImageSource({
+            image: Resources.PlayerSheet,
+            grid: {
+              rows: 2,
+               columns: 1,
+               spriteWidth: 192,
+              spriteHeight: 192
+           }
 
+             })
+             this.Idle = this.GuardSheet.sprites[1]
+             this.FlashOn = this.GuardSheet.sprites[0]
+
+        
     }
 
     onInitialize(engine){
         this.game = engine
-        this.graphics.use(Resources.Player.toSprite())
+        this.graphics.use(this.Idle)
         this.on('precollision', (event) => {
             if (event.other instanceof Wall){
                 this.pos = this.previousPos;
@@ -111,10 +134,12 @@ export class Player extends Actor{
             this.isItemAdded = true
             this.ITEM = new FlashLight()
             this.addChild(this.ITEM)
+            this.graphics.use(this.FlashOn)
         }else if(this.isItemAdded){
             this.removeChild(this.ITEM)
             this.isItemAdded = false
             console.log('Flashlight removed')
+            this.graphics.use(this.Idle)
 
         }
     }
