@@ -39,7 +39,6 @@ const Resources = {
     Fish: new ImageSource(fishImage),
     Background: new ImageSource(background),
     Player: new ImageSource(player),
-    Player: new ImageSource(player),
     Flashlight: new ImageSource(flashlight),
     Ghost: new ImageSource(ghost),
     Map: new ImageSource(map),

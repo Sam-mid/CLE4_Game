@@ -127,7 +127,7 @@ export class Room extends Scene {
         //score label
         this.score = 0
         this.mylabel = new Label({
-            text: `Ghosts killed: ${this.score}`,
+            text: `Ghosts killed: ${this.score}/10`,
             font: new Font({
                 family: 'Georgia',
                 size: 40,
@@ -176,7 +176,7 @@ export class Room extends Scene {
         const cameraX = this.camera.pos.x;
         const cameraY = this.camera.pos.y;
 
-        const LabelX = 300; // X-offset van de scorelabel ten opzichte van de camera
+        const LabelX = 250; // X-offset van de scorelabel ten opzichte van de camera
         const LabelY = -300; // Y-offset van de scorelabel ten opzichte van de camera
 
         const timeX = -550; // X-offset van de scorelabel ten opzichte van de camera
@@ -207,7 +207,7 @@ export class Room extends Scene {
 
     updateScore() {
         this.score++
-        this.mylabel.text = `Ghosts killed: ${this.score}`
+        this.mylabel.text = `Ghosts killed: ${this.score}/10`
     }
 
     onActivate() {
